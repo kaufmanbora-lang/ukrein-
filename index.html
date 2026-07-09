@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050b12">
+    <title>Щит України: Оборона Держави</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css?v=lite-assets-1">
+  </head>
+  <body>
+    <main class="war-room">
+      <header class="brand-card">
+        <span class="trident-mark" aria-hidden="true">UA</span>
+        <div>
+          <h1>Щит України</h1>
+          <p>Оборона Держави</p>
+        </div>
+      </header>
+
+      <section class="top-command" aria-label="Статус кампании">
+        <div class="status-cell money">
+          <span>Кошти</span>
+          <strong id="moneyStat">2 450 000</strong>
+          <small id="factoryIncomeStat">Заводы: +0 / сек</small>
+        </div>
+        <div class="status-cell">
+          <span>Мораль</span>
+          <strong id="moraleStat">84%</strong>
+          <small>стабильность</small>
+        </div>
+        <div class="status-cell">
+          <span>Розвідка</span>
+          <strong id="intelStat">76%</strong>
+          <small>уровень данных</small>
+        </div>
+        <div class="status-cell casualties">
+          <span>Потери</span>
+          <strong id="casualtiesStat">0</strong>
+          <small>погибло людей</small>
+        </div>
+        <div class="status-cell danger">
+          <span>Тиск ворога</span>
+          <strong id="enemyStat">Высокий</strong>
+          <small>наступление идет</small>
+        </div>
+        <div class="date-cell">
+          <span>08.07.2026</span>
+          <strong>День <b id="dayStat">0</b></strong>
+        </div>
+        <button class="icon-control" id="pauseBtn" title="Пауза">II</button>
+        <button class="icon-control" id="restartBtn" title="Новая кампания">↻</button>
+      </section>
+
+      <aside class="left-rail">
+        <nav class="mode-tabs" aria-label="Разделы">
+          <button class="is-active" data-section="ops">Карта</button>
+          <button data-section="diplomacy">Дипломатия</button>
+          <button data-section="upgrades">Улучшения</button>
+        </nav>
+
+        <section class="build-panel">
+          <div class="panel-title">
+            <h2>Будівництво та дії</h2>
+            <span>×</span>
+          </div>
+          <div class="action-list" id="opsPanel">
+            <button class="action-card" data-action="buyPvo">
+              <span class="action-icon icon-pvo"></span>
+              <span><strong>ППО</strong><small>зенитные системы</small></span>
+              <b>$ 250 000</b>
+            </button>
+            <button class="action-card" data-action="buyRadar">
+              <span class="action-icon icon-radar"></span>
+              <span><strong>РЛС</strong><small>радиолокационные станции</small></span>
+              <b>$ 200 000</b>
+            </button>
+            <button class="action-card" data-action="launchStrike">
+              <span class="action-icon icon-strike"></span>
+              <span><strong>Ракетний удар</strong><small>дальние удары по целям</small></span>
+              <b>$ 500 000</b>
+            </button>
+            <button class="action-card" data-action="launchPiercingStrike">
+              <span class="action-icon icon-strike"></span>
+              <span><strong>Несбиваемая ракета</strong><small>самая дорогая, ПВО не перехватывает</small></span>
+              <b>$ 5 000 000</b>
+            </button>
+            <button class="action-card" data-action="buyFighters">
+              <span class="action-icon icon-fighter"></span>
+              <span><strong>Авіація</strong><small>истребители и перехват</small></span>
+              <b>$ 400 000</b>
+            </button>
+            <button class="action-card" data-action="buyHelicopter">
+              <span class="action-icon icon-helicopter"></span>
+              <span><strong>Вертоліт</strong><small>удар по точке или технике</small></span>
+              <b>$ 320 000</b>
+            </button>
+            <button class="action-card" data-action="buyTank">
+              <span class="action-icon icon-tank"></span>
+              <span><strong>Танки</strong><small>наземный штурм и обстрел</small></span>
+              <b>$ 220 000</b>
+            </button>
+            <button class="action-card" data-action="buyBtr">
+              <span class="action-icon icon-btr"></span>
+              <span><strong>БТР</strong><small>быстрая бронемашина для наземной поддержки</small></span>
+              <b>$ 180 000</b>
+            </button>
+            <button class="action-card" data-action="buyFactory">
+              <span class="action-icon icon-factory"></span>
+              <span><strong>Завод</strong><small>доход каждую секунду</small></span>
+              <b>$ 360 000</b>
+            </button>
+            <button class="action-card" data-action="launchRecon">
+              <span class="action-icon icon-recon"></span>
+              <span><strong>Разведдрон</strong><small>ищет и подсвечивает объекты</small></span>
+              <b>$ 120 000</b>
+            </button>
+            <button class="action-card" data-action="launchAttackDrone">
+              <span class="action-icon icon-attack-drone"></span>
+              <span><strong>Ударный дрон</strong><small>летит в точку и взрывается</small></span>
+              <b>$ 160 000</b>
+            </button>
+            <button class="action-card" data-action="deploySpecOps">
+              <span class="action-icon icon-specops"></span>
+              <span><strong>Спецназ</strong><small>диверсионные группы</small></span>
+              <b>$ 150 000</b>
+            </button>
+            <button class="action-card" data-action="buyFort">
+              <span class="action-icon icon-fort"></span>
+              <span><strong>Інженерні споруди</strong><small>укрепления и мини-поля</small></span>
+              <b>$ 100 000</b>
+            </button>
+            <button class="action-card" data-action="repair">
+              <span class="action-icon icon-repair"></span>
+              <span><strong>Инженеры</strong><small>медленный ремонт за 80 секунд</small></span>
+              <b>$ 180 000</b>
+            </button>
+            <button class="action-card manual" data-action="manualIntercept">
+              <span><strong>Ручной пуск</strong><small>клик по летящей угрозе</small></span>
+              <b>$ 70</b>
+            </button>
+          </div>
+          <div class="diplomacy-panel" id="diplomacyPanel" hidden>
+            <div class="diplomacy-status">
+              <div>
+                <span>Прямой канал</span>
+                <strong id="diplomacyStatus">война</strong>
+                <small id="diplomacyAiStatus" class="ai-source">AI: проверка...</small>
+              </div>
+              <div class="diplomacy-participants" aria-label="Участники переговоров">
+                <b>Зеленский</b>
+                <i>Киев</i>
+                <em>↔</em>
+                <b>Путин</b>
+                <i>Москва</i>
+              </div>
+            </div>
+            <div class="diplomacy-messages" id="diplomacyMessages"></div>
+            <form class="diplomacy-form" id="diplomacyForm">
+              <textarea id="diplomacyInput" maxlength="600" rows="4" placeholder="Пишите от лица Зеленского: прекращение огня, обмен, вывод войск, гарантии..."></textarea>
+              <button id="diplomacySendBtn" type="submit">Отправить Путину</button>
+            </form>
+          </div>
+          <div class="upgrades-panel" id="upgradesPanel" hidden>
+            <div class="upgrade-section-head">
+              <div>
+                <span>Модернизация</span>
+                <strong>+7% за улучшение</strong>
+              </div>
+              <b>$ 5 000 000</b>
+            </div>
+            <div class="upgrade-menu-list" id="upgradeMenuList"></div>
+            <div class="upgrade-section-head stock-head">
+              <div>
+                <span>Склад заводов</span>
+                <strong>Техника хранится на заводах</strong>
+              </div>
+              <b>15 шт. поставка</b>
+            </div>
+            <div class="equipment-stock-list" id="equipmentStockList"></div>
+          </div>
+        </section>
+
+        <section class="region-card">
+          <span class="sr-game-field">Выбранный регион</span>
+          <h2 id="selectedTitle" class="sr-game-field">Киевщина</h2>
+          <div id="selectedStats" class="selected-stats sr-game-field"></div>
+          <div class="rail-playback">
+            <button id="railPauseBtn" type="button" class="rail-pause"><strong>II</strong><span>Пауза</span></button>
+            <div class="rail-speed">
+              <button type="button">≪</button>
+              <button type="button">‹</button>
+              <button type="button">II</button>
+              <button type="button">›</button>
+              <button type="button">≫</button>
+              <button type="button">x1</button>
+            </div>
+          </div>
+          <p id="modeHint" class="sr-game-field">Кликните регион или выберите действие.</p>
+        </section>
+      </aside>
+
+      <section class="map-stage">
+        <div id="googleMap" aria-hidden="true"></div>
+        <canvas id="gameCanvas" aria-label="Оперативная карта Украины и западной России"></canvas>
+
+        <div class="map-toolbar">
+          <button>Шары</button>
+          <button>Фильтры</button>
+          <button id="zoomInBtn" type="button">+</button>
+          <button id="zoomOutBtn" type="button">−</button>
+        </div>
+
+        <div class="map-heading">
+          <h2>Оперативна карта</h2>
+          <span id="mapStatus">Спутниковый режим: локальная карта</span>
+        </div>
+
+        <div class="map-key-controls">
+          <input id="mapsKeyInput" type="password" autocomplete="off" placeholder="Google Maps API key">
+          <button id="loadMapBtn">Maps</button>
+          <button id="fallbackMapBtn">2D</button>
+        </div>
+
+        <div class="legend-bar">
+          <span><i class="leg-blue"></i>ППО</span>
+          <span><i class="leg-green"></i>РЛС</span>
+          <span><i class="leg-yellow"></i>Союзники</span>
+          <span><i class="leg-red"></i>Противник</span>
+          <span><i class="leg-orange"></i>Ракеты / дроны</span>
+          <span><i class="leg-purple"></i>Спецназ</span>
+        </div>
+      </section>
+
+      <aside class="right-rail">
+        <section class="intel-card">
+          <div class="panel-title">
+            <h2>Розвідка та цілі</h2>
+            <span>×</span>
+          </div>
+          <div class="drawer-tabs">
+            <button class="tab-btn is-active" data-tab="targets">Цілі РФ</button>
+            <button class="tab-btn" data-tab="log">Звіти</button>
+          </div>
+          <div class="drawer-body">
+            <div id="targetList" class="drawer-list is-active" data-panel="targets"></div>
+            <div id="battleLog" class="drawer-list battle-log" data-panel="log"></div>
+          </div>
+        </section>
+
+        <section class="threat-card">
+          <div class="panel-title hot">
+            <h2>Активні загрози</h2>
+            <strong id="threatCount">0</strong>
+          </div>
+          <div id="incomingList" class="drawer-list is-active" data-panel="threats"></div>
+        </section>
+      </aside>
+
+      <footer class="bottom-command">
+        <section class="ops-log">
+          <h2>Оперативні повідомлення</h2>
+          <div class="ticker" id="overlayBanner">
+            <span>22:30</span>
+            <p><strong>Цель:</strong> удержать инфраструктуру, сбивать атаки, находить разведкой объекты РФ и уничтожать их.</p>
+          </div>
+        </section>
+        <section class="mini-map">
+          <div class="mini-map-box">
+            <span></span>
+          </div>
+        </section>
+      </footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="app.js?v=lite-assets-1"></script>
+  </body>
+</html>

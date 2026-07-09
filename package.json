@@ -1,0 +1,15 @@
+{
+  "name": "shield-ukraine-game",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/write-config.mjs",
+    "check": "node --check app.js && node --check scripts/server.mjs && node --check scripts/write-config.mjs && node --check scripts/env.mjs",
+    "dev": "node scripts/server.mjs",
+    "start": "node scripts/server.mjs"
+  }
+}
