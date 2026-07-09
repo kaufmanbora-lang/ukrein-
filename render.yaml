@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: shield-ukraine-game
+    runtime: node
+    plan: free
+    autoDeploy: true
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/ai-status
+    envVars:
+      - key: GOOGLE_MAPS_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5.5
+      - key: OPENAI_TEMPERATURE
+        value: "0.93"
+      - key: NODE_VERSION
+        value: "22"
